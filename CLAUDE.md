@@ -5,6 +5,7 @@ This file contains configuration and context for Claude Code to work effectively
 ## Project Overview
 
 This is an Astro-based component playground built with:
+
 - **Astro** - The web framework
 - **Starlight** - Documentation framework
 - **React** - For interactive components
@@ -38,18 +39,21 @@ src/
 ## Component Development Guidelines
 
 ### Astro Components
+
 - Use `.astro` extension
 - Follow existing patterns in `src/components/examples/`
 - Use Tailwind classes for styling
 - Add client directives (`client:load`, `client:visible`) when needed
 
 ### React Components
+
 - Use `.tsx` extension
 - Import React from 'react'
 - Use TypeScript for props
 - Follow React best practices
 
 ### Documentation
+
 - Add `.mdx` files to `src/content/docs/`
 - Use the PlaygroundRenderer for interactive examples
 - Include component props and usage examples
@@ -57,17 +61,20 @@ src/
 ## Common Tasks
 
 ### Adding a New Component
+
 1. Create component in `src/components/examples/`
 2. Create documentation in `src/content/docs/[component-name].mdx`
 3. Test with the playground renderer
 4. Update navigation if needed
 
 ### Styling
+
 - Use Tailwind CSS classes
 - Global styles go in `src/styles/global.css`
 - Follow existing design patterns
 
 ### Testing
+
 - Test components in the browser using `npm run dev`
 - Use the playground renderer for interactive testing
 - Run `npm run build` to test production builds
@@ -75,6 +82,7 @@ src/
 ## Dependencies
 
 Key dependencies to be aware of:
+
 - `astro` - Core framework
 - `@astrojs/starlight` - Documentation theme
 - `@astrojs/react` - React integration

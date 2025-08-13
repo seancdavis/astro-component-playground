@@ -14,7 +14,7 @@ export default function PlaygroundRenderer({ component, controls }: Props) {
   const buildComponentUrl = (currentProps: Record<string, any>) => {
     const searchParams = new URLSearchParams();
     searchParams.set('component', component);
-    
+
     Object.entries(currentProps).forEach(([key, value]) => {
       if (value !== undefined && value !== '') {
         searchParams.set(key, String(value));
@@ -27,10 +27,10 @@ export default function PlaygroundRenderer({ component, controls }: Props) {
   const updateIframe = (currentProps: Record<string, any>) => {
     setLoading(true);
     const url = buildComponentUrl(currentProps);
-    
+
     // Force iframe to reload by updating the key
-    setIframeKey(prev => prev + 1);
-    
+    setIframeKey((prev) => prev + 1);
+
     // The onLoad handler will set loading to false
     if (iframeRef.current) {
       iframeRef.current.src = url;
@@ -47,7 +47,7 @@ export default function PlaygroundRenderer({ component, controls }: Props) {
 
   useEffect(() => {
     const initialProps: Record<string, any> = {};
-    
+
     Object.entries(controls).forEach(([key, control]) => {
       if (Array.isArray(control)) {
         initialProps[key] = control[0];
@@ -115,7 +115,7 @@ export default function PlaygroundRenderer({ component, controls }: Props) {
             ))}
           </div>
         </div>
-        
+
         <div>
           <h3 className="text-lg font-semibold mb-4">Preview</h3>
           <div className="border rounded-md bg-gray-50 dark:bg-gray-800 min-h-[300px] relative overflow-hidden">
