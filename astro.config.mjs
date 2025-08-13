@@ -3,15 +3,12 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-
 import netlify from '@astrojs/netlify';
 
-// https://astro.build/config
 export default defineConfig({
   output: 'server',
 
   integrations: [
-    // react(),
     starlight({
       title: 'Component Playground',
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
@@ -43,4 +40,8 @@ export default defineConfig({
   },
 
   adapter: netlify(),
+
+  devToolbar: {
+    enabled: false,
+  },
 });
