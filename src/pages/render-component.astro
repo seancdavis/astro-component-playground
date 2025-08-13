@@ -5,17 +5,10 @@ import Button from '../components/examples/Button.astro';
 import InteractiveButton from '../components/examples/InteractiveButton.astro';
 import ReactCounter from '../components/examples/ReactCounter.tsx';
 
-const componentMap = {
-  Button,
-  InteractiveButton,
-  ReactCounter,
-};
-
 const url = new URL(Astro.request.url);
 const componentName = url.searchParams.get('component');
-const Component = componentMap[componentName as keyof typeof componentMap];
 
-if (!Component) {
+if (!componentName || !['Button', 'InteractiveButton', 'ReactCounter'].includes(componentName)) {
   return new Response('Component not found', { status: 404 });
 }
 
@@ -33,4 +26,40 @@ for (const [key, value] of url.searchParams.entries()) {
 }
 ---
 
-<Component {...props} />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Preview</title>
+    <link href="/src/styles/global.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f8fafc;
+      }
+      .preview-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-container">
+      {componentName === 'Button' && <Button {...props} />}
+      {componentName === 'InteractiveButton' && <InteractiveButton {...props} />}
+      {componentName === 'ReactCounter' && <ReactCounter {...props} client:load />}
+    </div>
+  </body>
+</html>

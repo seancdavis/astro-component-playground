@@ -4,6 +4,7 @@ description: A React component that maintains internal state with increment and 
 ---
 
 import PlaygroundRenderer from '../../components/playground/PlaygroundRenderer.tsx';
+import ReactCounter from '../../components/examples/ReactCounter.tsx';
 
 # React Counter Component
 
@@ -11,12 +12,14 @@ A React component that demonstrates state management with configurable initial c
 
 ## Interactive Playground
 
-<PlaygroundRenderer 
+<ReactCounter initialCount={10} step={2} color="green" client:load />
+
+<PlaygroundRenderer
   component="ReactCounter"
   controls={{
     initialCount: 'text',
     step: 'text',
-    color: ['blue', 'green', 'red', 'purple']
+    color: ['blue', 'green', 'red', 'purple'],
   }}
   client:load
 />
@@ -24,7 +27,7 @@ A React component that demonstrates state management with configurable initial c
 ## Properties
 
 - **initialCount** (`number`) - The starting count value (default: 0)
-- **step** (`number`) - The increment/decrement step size (default: 1)  
+- **step** (`number`) - The increment/decrement step size (default: 1)
 - **color** (`'blue' | 'green' | 'red' | 'purple'`) - The color theme for the buttons (default: 'blue')
 
 ## Behavior
