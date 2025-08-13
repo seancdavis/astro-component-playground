@@ -1,0 +1,44 @@
+---
+title: React Counter Component
+description: A React component that maintains internal state with increment and decrement functionality
+---
+
+import PlaygroundRenderer from '../../components/playground/PlaygroundRenderer.tsx';
+
+# React Counter Component
+
+A React component that demonstrates state management with configurable initial count, step size, and color theme.
+
+## Interactive Playground
+
+<PlaygroundRenderer 
+  component="ReactCounter"
+  controls={{
+    initialCount: 'text',
+    step: 'text',
+    color: ['blue', 'green', 'red', 'purple']
+  }}
+  client:load
+/>
+
+## Properties
+
+- **initialCount** (`number`) - The starting count value (default: 0)
+- **step** (`number`) - The increment/decrement step size (default: 1)  
+- **color** (`'blue' | 'green' | 'red' | 'purple'`) - The color theme for the buttons (default: 'blue')
+
+## Behavior
+
+This component maintains its own internal state and responds to button clicks. Note that when props are changed in the playground, the component will re-render and lose its current state, resetting to the new `initialCount` value.
+
+## Usage
+
+```astro
+---
+import ReactCounter from '../components/examples/ReactCounter.tsx';
+---
+
+<ReactCounter initialCount={10} step={2} color="green" client:load />
+```
+
+Make sure to include the `client:load` directive when using React components in Astro to enable client-side interactivity.

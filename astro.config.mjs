@@ -2,20 +2,28 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
   integrations: [
+    // react(),
     starlight({
-      title: 'Docs with Tailwind',
+      title: 'Component Playground',
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
       sidebar: [
         {
-          label: 'Guides',
+          label: 'Components',
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
+            { label: 'Button', slug: 'button' },
+            { label: 'Interactive Button', slug: 'interactive-button' },
+            { label: 'React Counter', slug: 'react-counter' },
           ],
+        },
+        {
+          label: 'Guides',
+          items: [{ label: 'Example Guide', slug: 'guides/example' }],
         },
         {
           label: 'Reference',
@@ -24,6 +32,7 @@ export default defineConfig({
       ],
       customCss: ['./src/styles/global.css'],
     }),
+    react(),
   ],
   vite: {
     plugins: [tailwindcss()],

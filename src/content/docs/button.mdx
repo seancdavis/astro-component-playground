@@ -1,0 +1,40 @@
+---
+title: Button Component
+description: A configurable button component with different variants and sizes
+---
+
+import PlaygroundRenderer from '../../components/playground/PlaygroundRenderer.tsx';
+
+# Button Component
+
+A simple, configurable button component with support for different variants and sizes.
+
+## Interactive Playground
+
+<PlaygroundRenderer 
+  component="Button"
+  controls={{
+    variant: ['primary', 'secondary', 'danger'],
+    size: ['sm', 'md', 'lg'], 
+    children: 'text'
+  }}
+  client:load
+/>
+
+## Properties
+
+- **variant** (`'primary' | 'secondary' | 'danger'`) - The visual style of the button
+- **size** (`'sm' | 'md' | 'lg'`) - The size of the button
+- **children** (`string`) - The text content of the button
+
+## Usage
+
+```astro
+---
+import Button from '../components/examples/Button.astro';
+---
+
+<Button variant="primary" size="md">
+  Click me
+</Button>
+```
