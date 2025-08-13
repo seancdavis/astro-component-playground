@@ -4,6 +4,7 @@ export const prerender = false;
 import Button from '../components/examples/Button.astro';
 import InteractiveButton from '../components/examples/InteractiveButton.astro';
 import ReactCounter from '../components/examples/ReactCounter.tsx';
+import '../styles/global.css';
 
 const url = new URL(Astro.request.url);
 const componentName = url.searchParams.get('component');
@@ -32,7 +33,6 @@ for (const [key, value] of url.searchParams.entries()) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Component Preview</title>
-    <link href="/src/styles/global.css" rel="stylesheet" />
     <style>
       body {
         margin: 0;
